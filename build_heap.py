@@ -1,4 +1,5 @@
 # python3
+import sys
 
 
 def build_heap(n, data):
