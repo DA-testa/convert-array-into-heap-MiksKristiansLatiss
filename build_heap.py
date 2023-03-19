@@ -34,7 +34,6 @@ def build_heap(n, data):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python build_heap.py [input_type]")
         return
     input_type = sys.argv[1]
     if input_type == "I":
