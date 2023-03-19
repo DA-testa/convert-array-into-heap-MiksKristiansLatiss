@@ -32,15 +32,23 @@ def build_heap(n, data):
 
 
 def main():
-    n = int(input().strip())
-    data = list(map(int, input().split()))
+    if len(sys.argv) < 2:
+        print("Usage: python build_heap.py [input_type]")
+        return
+    input_type = sys.argv[1]
+    if input_type == "I":
+        n = int(input().strip())
+        data = list(map(int, input().split()))
+    elif input_type == "F":
+        filename = input().strip()
+        with open(filename, "r") as f:
+            n = int(f.readline().strip())
+            data = list(map(int, f.readline().split()))
+        return
     assert len(data) == n
 
-    sort_type = input().strip().lower()
-    assert sort_type in {'i', 'f'} 
-
     swap_count, swap_list = build_heap(n, data)
-
+    
     print(swap_count)
     for swap in swap_list:
         print(swap[0], swap[1])
