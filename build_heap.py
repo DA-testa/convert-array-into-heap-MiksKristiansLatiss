@@ -36,6 +36,9 @@ def main():
     data = list(map(int, input().split()))
     assert len(data) == n
 
+    sort_type = input().strip().lower()
+    assert sort_type in {'i', 'f'} 
+
     swap_count, swap_list = build_heap(n, data)
 
     print(swap_count)
