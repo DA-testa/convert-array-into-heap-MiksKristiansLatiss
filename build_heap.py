@@ -35,7 +35,7 @@ def main():
         data = list(map(int, input().split()))
     elif input_type == 'F':
         filename = input().strip()
-        with open(filename + '.txt', 'r') as f:
+        with open(filename, 'r') as f:
             n = int(f.readline())
             data = list(map(int, f.readline().split()))
     else:
