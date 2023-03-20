@@ -1,4 +1,3 @@
-# python3
 import sys
 
 
@@ -44,11 +43,12 @@ def main():
         with open(filename, "r") as f:
             n = int(f.readline().strip())
             data = list(map(int, f.readline().split()))
+    else:
         return
     assert len(data) == n
 
     swap_count, swap_list = build_heap(n, data)
-    
+
     print(swap_count)
     for swap in swap_list:
         print(swap[0], swap[1])
