@@ -1,6 +1,3 @@
-import sys
-
-
 def build_heap(n, data):
     swap_count = 0
     swap_list = []
@@ -32,24 +29,19 @@ def build_heap(n, data):
 
 
 def main():
-    if len(sys.argv) < 2:
-        return
-    input_type = sys.argv[1]
+    input_type = input()
     if input_type == "I":
-        n = int(input().strip())
+        n = int(input())
         data = list(map(int, input().split()))
         assert len(data) == n
     elif input_type == "F":
-        filename = input().strip()
-        with open(filename, "r") as f:
-            n = int(f.readline().strip())
+        with open("input.txt", "r") as f:
+            n = int(f.readline())
             data = list(map(int, f.readline().split()))
             assert len(data) == n
-    else:
-        return
 
     swap_count, swap_list = build_heap(n, data)
-    
+
     print(swap_count)
     for swap in swap_list:
         print(swap[0], swap[1])
