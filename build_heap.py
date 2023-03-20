@@ -29,16 +29,18 @@ def build_heap(n, data):
 
 
 def main():
-    input_type = input()
-    if input_type == "I":
+    input_type = input().strip()
+    if input_type == 'I':
         n = int(input())
         data = list(map(int, input().split()))
-        assert len(data) == n
-    elif input_type == "F":
-        with open("input.txt", "r") as f:
+    elif input_type == 'F':
+        with open(input().strip(), 'r') as f:
             n = int(f.readline())
             data = list(map(int, f.readline().split()))
-            assert len(data) == n
+    else:
+        return
+    
+    assert len(data) == n
 
     swap_count, swap_list = build_heap(n, data)
 
